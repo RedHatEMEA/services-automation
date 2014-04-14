@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+FEATURES_PROJECT=mvn:org.redat.rhc/services-automation/1.0-SNAPSHOT
+
+export DEPLOY_SCRIPT="shell:source $FEATURES_PROJECT/karaf/deploy"
+export UNDEPLOY_SCRIPT="shell:source $FEATURES_PROJECT/karaf/undeploy"
+export REDEPLOY_SCRIPT="shell:source $FEATURES_PROJECT/karaf/redeploy"
