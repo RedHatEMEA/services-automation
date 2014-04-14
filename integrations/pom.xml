@@ -2,22 +2,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>services-automation</artifactId>
-        <groupId>org.redat.rhc</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>org.redhat.rhc</groupId>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>integrations</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>SvcsAuto :: integrations</name>
 
-    <!--
     <modules>
-        <module>x</module>
-        <module>y</module>
+        <module>integrations-parent</module>
+
     </modules>
-    -->
+
 </project>
