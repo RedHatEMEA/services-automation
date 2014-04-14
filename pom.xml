@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.redat.rhc</groupId>
+    <artifactId>services-automation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Services Automation</name>
+    <packaging>pom</packaging>
+
+    <!-- Modules -->
+    <modules>
+        <module>integrations</module>
+        <module>bundle-parent</module>
+    </modules>
+
+    <properties>
+
+        <!-- Global java and fuse version-->
+        <java.version>1.7</java.version>
+        <fuse.build.version>379</fuse.build.version>
+
+        <!-- Fuse component library versions -->
+        <fuse.cxf.version>2.7.0.redhat-610${fuse.build.version}</fuse.cxf.version>
+        <fuse.camel.version>2.12.0.redhat-610${fuse.build.version}</fuse.camel.version>
+        <fuse.spring.version>3.2.4.RELEASE</fuse.spring.version>
+        <fuse.fabric.version>1.0.0.redhat-${fuse.build.version}</fuse.fabric.version>
+        <fuse.hawtio.version>1.2-redhat-${fuse.build.version}</fuse.hawtio.version>
+        <fuse.karaf.version>2.3.0.redhat-610${fuse.build.version}</fuse.karaf.version>
+        <fuse.activemq.version>5.9.0.redhat-610${fuse.build.version}</fuse.activemq.version>
+        <fuse.version>6.1.0.redhat-${fuse.build.version}</fuse.version>
+
+        <!-- Camel -->
+        <camel.version>${fuse.camel.version}</camel.version>
+        <camel.version.range>[2.12, 3)</camel.version.range>
+
+        <!-- CXF -->
+        <cxf.version>${fuse.cxf.version}</cxf.version>
+        <cxf.version.range>[2.7, 3)</cxf.version.range>
+
+        <!-- Maven plugin versions -->
+        <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+        <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+        <maven-fabric8-deploy.version>1.0.0.redhat-${fuse.build.version}</maven-fabric8-deploy.version>
+        <build-plugins-plugin.version>2.5</build-plugins-plugin.version>
+        <build-helper-plugin.version>1.7</build-helper-plugin.version>
+        <build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
+        <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
+        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+
+        <maven-enforcer-plugin.version>1.1</maven-enforcer-plugin.version>
+        <features-maven-plugin.version>2.2.5</features-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.12</maven-failsafe-plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <properties-maven-plugin.version>1.0-alpha-2</properties-maven-plugin.version>
+    </properties>
+
+    <organization>
+        <name>Red Hat </name>
+        <url>http://www.redhat.com</url>
+    </organization>
+
+    <prerequisites>
+        <maven>3.2.1</maven>
+    </prerequisites>
+
+    <issueManagement>
+        <system>trello</system>
+        <url>https://trello.com/b/3q0jp5dH/services-automation</url>
+    </issueManagement>
+
+    <repositories>
+        <repository>
+            <id>Fuse Akamei Cached Repository</id>
+            <name>Red Hat JBoss Fuse Cached Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>Fuse Direct Repository</id>
+            <name>Red Hat JBoss Fuse Direct Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/fs-public</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+
+
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Fuse Plugin Repository</id>
+            <name>Red Hat JBoss Fuse Plugin Repository</name>
+            <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
