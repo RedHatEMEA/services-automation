@@ -1,0 +1,185 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font:15px/1.3 'Open Sans', sans-serif;
+	color: #5e5b64;
+	text-align:center;
+}
+
+a, a:visited {
+	outline:none;
+	color:#389dc1;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header, aside, nav{
+	display: block;
+}
+
+/*-------------------------
+	The menu
+--------------------------*/
+
+nav{
+	display:inline-block;
+	margin:60px auto 45px;
+	background-color:#5597b4;
+	box-shadow:0 1px 1px #ccc;
+	border-radius:2px;
+}
+
+nav a{
+	display:inline-block;
+	padding: 18px 30px;
+	color:#fff !important;
+	font-weight:bold;
+	font-size:16px;
+	text-decoration:none !important;
+	line-height:1;
+	text-transform: uppercase;
+	background-color:transparent;
+
+	-webkit-transition:background-color 0.25s;
+	-moz-transition:background-color 0.25s;
+	transition:background-color 0.25s;
+}
+
+nav a:first-child{
+	border-radius:2px 0 0 2px;
+}
+
+nav a:last-child{
+	border-radius:0 2px 2px 0;
+}
+
+nav.home .home,
+nav.projects .projects,
+nav.services .services,
+nav.contact .contact{
+	background-color:#e35885;
+}
+
+p{
+	font-size:22px;
+	font-weight:bold;
+	color:#7d9098;
+}
+
+p b{
+	color:#ffffff;
+	display:inline-block;
+	padding:5px 10px;
+	background-color:#c4d7e0;
+	border-radius:2px;
+	text-transform:uppercase;
+	font-size:18px;
+}span.invalid {
+  padding-left: 3px;
+  color: red;
+}
+form {
+  padding: 1em;
+  font: 80%/1 sans-serif;
+  width: 375px;
+  border: 1px solid #D5D5D5;
+}
+label {
+  float: left;
+  width: 15%;
+  margin-left: 20px;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: right;
+  font-weight: bold;
+  color:#363636;
+}
+input {
+  margin-bottom: 8px;
+}
+.register {
+  float: left;
+  margin-left: 85px;
+}
+
+/*  -----  table style  -------  */
+
+
+/*  = Simple Table style (black header, grey/white stripes  */
+
+.simpletablestyle {
+  background-color:#E6E7E8;
+  clear:both;
+  width: 550px;
+}
+
+.simpletablestyle img {
+  border:0px;
+}
+
+.simpletablestyle td {
+  height:2em;
+  padding-left: 6px;
+  font-size:11px;
+  padding:5px 5px;
+}
+
+.simpletablestyle th {
+	background: url(../gfx/bkg-blkheader.png) black repeat-x top left;
+  font-size:12px;
+  font-weight:normal;
+  padding:0 10px 0 5px;
+  border-bottom:#999999 dotted 1px;
+}
+
+.simpletablestyle thead {
+  background: url(../gfx/bkg-blkheader.png) black repeat-x top left;
+  height:31px;
+  font-size:10px;
+  font-weight:bold;
+  color:#FFFFFF;
+  text-align:left;
+}
+
+.simpletablestyle .header a {
+  color:#94aebd;
+}
+
+.simpletablestype tfoot {
+	height: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #EAECEE;
+  text-align: center;
+}
+
+.simpletablestyle tr.header td {
+  padding: 0px 10px 0px 5px;
+}
+
+
+.simpletablestyle .subheader {
+  background-color: #e6e7e8;
+  font-size:10px;
+  font-weight:bold;
+  color:#000000;
+  text-align:left;
+}
+
+/* Using new CSS3 selectors for styling*/
+.simpletablestyle tr:nth-child(odd) {
+  background: #f4f3f3;
+}
+.simpletablestyle tr:nth-child(even) {
+  background: #ffffff;
+}
+
+.simpletablestyle td a:hover {
+  color:#3883ce;
+  text-decoration:none; 
+}
