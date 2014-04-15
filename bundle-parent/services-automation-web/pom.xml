@@ -50,6 +50,7 @@
 		<finalName>${project.artifactId}</finalName>
 		<defaultGoal>install</defaultGoal>
 
+		<pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -78,7 +79,6 @@
 						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 
-						<!-- fix jgit, and slf4j imports -->
 						<Import-Package>
 							org.eclipse.jetty.plus.jaas.spi;resolution:=optional,
 							org.eclipse.jetty.plus.jaas.callback;resolution:=optional,
@@ -114,7 +114,6 @@
 					</archive>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -134,56 +133,20 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!--<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
-					<!-- Optionally specify where the web.xml file comes from -->
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 					<warSourceDirectory>${webapp-outdir}</warSourceDirectory>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<failOnMissingWebXml>false</failOnMissingWebXml> -->
 					<!-- <webResources> <resource> <directory>src/main/resources</directory> 
 						<targetPath>WEB-INF</targetPath> <includes> <include>**/*</include> </includes> 
 						</resource> </webResources> -->
-				</configuration>
-			</plugin>
+				<!-- </configuration>
+			</plugin> -->
 
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.felix
-										</groupId>
-										<artifactId>
-											maven-bundle-plugin
-										</artifactId>
-										<versionRange>
-											[${maven-bundle-plugin-version},)
-										</versionRange>
-										<goals>
-											<goal>manifest</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
 		</pluginManagement>
 	</build>
 

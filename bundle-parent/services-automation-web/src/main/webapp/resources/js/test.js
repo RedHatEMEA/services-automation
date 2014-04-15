@@ -1,4 +1,7 @@
-var testApp = angular.module('testApp', [ 'ngRoute' ]);
+var testApp = angular.module('testApp', [ 'ui.bootstrap','ngRoute']);
+//var testDrop = angular.module('plunker', ['ui.bootstrap']);
+
+//var myApp = angular.module('myApp',['testApp', 'testDrop']) 
 
 // configure our routes
 testApp.config(function($routeProvider) {
