@@ -21,6 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven-bundle-plugin-version>2.3.7</maven-bundle-plugin-version>
 	</properties>
 
 	<dependencies>
@@ -50,6 +51,51 @@
 
 		<plugins>
 			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven-bundle-plugin-version}</version>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+						<supportedProjectType>war</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Webapp-Context>/services-automation-web</Webapp-Context>
+						<Web-ContextPath>/services-automation-web</Web-ContextPath>
+
+						<Embed-Directory>WEB-INF/lib</Embed-Directory>
+						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+
+						<Bundle-ClassPath>.</Bundle-ClassPath>
+						<Bundle-Name>${project.artifactId}</Bundle-Name>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Implementation-Title>RH-SAWeb OSGI</Implementation-Title>
+						<Implementation-Version>${project.version}</Implementation-Version>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					 <archive>
+			            <manifestFile>${basedir}/target/classes/META-INF/MANIFEST.MF</manifestFile>
+			          </archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
@@ -74,7 +120,9 @@
 				<configuration>
 					<!-- Optionally specify where the web.xml file comes from -->
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-					<!-- Optionally specify extra resources to include -->
+					<warSourceDirectory>${webapp-outdir}</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- 
 					<webResources>
 						<resource>
 							<directory>src/main/resources</directory>
@@ -84,11 +132,84 @@
 							</includes>
 						</resource>
 					</webResources>
+					-->
 				</configuration>
 			</plugin>
 
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.felix
+										</groupId>
+										<artifactId>
+											maven-bundle-plugin
+										</artifactId>
+										<versionRange>
+											[${maven-bundle-plugin-version},)
+										</versionRange>
+										<goals>
+											<goal>manifest</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public.jboss.org</id>
+			<name>JBoss Public Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>fs-public.jboss.org</id>
+			<name>JBoss FuseSource Public Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/fs-public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ea.jboss.org</id>
+			<name>JBoss Early Access Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/ea</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
 
 
 </project>
