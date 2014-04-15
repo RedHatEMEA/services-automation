@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-bundle-plugin-version>2.3.7</maven-bundle-plugin-version>
+		<webapp-outdir>${basedir}/target/${webapp-dir}</webapp-outdir>
 	</properties>
 
 	<dependencies>
